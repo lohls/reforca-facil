@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ReforçaFácil</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="header">
+    <h1 class="titulo-site">Reforça Fácil</h1>
+</header>
+
+<!-- Seção de Autenticação -->
+<section id="authSection">
+    <h2>Cadastro</h2>
+    <form id="formCadastro">
+        <input type="email" id="emailCadastro" placeholder="Email" required />
+        <input type="password" id="senhaCadastro" placeholder="Senha" required />
+
+        <div id="campoRMP" style="display: none;">
+            <label for="rmp">RMP (Registro de Magistério Profissional):</label>
+            <input type="text" id="rmp" name="rmp" placeholder="Digite o RMP do professor" pattern="RMP\d{6}" title="Formato: RMP123456" />
+
+        </div>
+
+        <fieldset>
+            <legend>Tipo de Usuário</legend>
+            <label><input type="radio" name="tipoUsuario" value="aluno" checked /> Aluno</label>
+            <label><input type="radio" name="tipoUsuario" value="professor" /> Professor</label>
+        </fieldset>
+
+        <button type="submit" class="botao-estilizado">Cadastrar</button>
+    </form>
+
+    <h2>Login</h2>
+    <form id="formLogin">
+        <input type="email" id="emailLogin" placeholder="Email" required />
+        <input type="password" id="senhaLogin" placeholder="Senha" required />
+        <button type="submit" class="botao-estilizado">Entrar</button>
+    </form>
+</section>
+
+<!-- Botão de Logout -->
+<button id="btnLogout" class="botao-estilizado" style="display: none;">Sair</button>
+
+<!-- Seção de Cadastro de Aula (somente para professor) -->
+<section id="cadastroAula" style="display:none;">
+    <h2>Cadastrar Nova Aula</h2>
+    <form id="cadastroAulaForm">
+        <input type="text" id="materia" placeholder="Matéria" required />
+        <input type="date" id="data" required />
+        <input type="time" id="hora" required />
+        <input type="text" id="professor" placeholder="Seu nome" required />
+        <button type="submit" class="botao-estilizado">Cadastrar Aula</button>
+    </form>
+</section>
+
+<!-- Lista de Aulas -->
+<section id="listaAulasSection" style="display:none;">
+    <h2>Lista de Aulas</h2>
+    <ul id="listaAulas"></ul>
+</section>
+
+<!-- Seção de Inscrição (aluno) -->
+<section id="inscricaoSection" style="display:none;">
+    <h2>Inscrever-se em uma Aula</h2>
+    <form id="formInscricao">
+        <select id="selectAula" required></select>
+        <input type="text" id="nomeAluno" placeholder="Seu nome" required />
+        <input type="email" id="emailAluno" placeholder="Seu email" required />
+        <button type="submit" class="botao-estilizado">Inscrever</button>
+    </form>
+    <p id="mensagemInscricao"></p>
+</section>
+
+<!-- Seção de Inscrições do Professor -->
+<section id="inscricoesSection" style="display:none;">
+    <h2>Inscrições dos Alunos</h2>
+    <ul id="listaInscricoes"></ul>
+</section>
+
+<!-- Script para exibir/ocultar o campo RMP -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tipoUsuarioRadios = document.querySelectorAll('input[name="tipoUsuario"]');
+      const campoRMP = document.getElementById('campoRMP');
+
+      function verificarExibicaoRMP() {
+        const selecionado = document.querySelector('input[name="tipoUsuario"]:checked');
+        campoRMP.style.display = selecionado?.value === 'professor' ? 'block' : 'none';
+      }
+
+      tipoUsuarioRadios.forEach(radio => {
+        radio.addEventListener('change', verificarExibicaoRMP);
+      });
+
+      verificarExibicaoRMP(); // Garante exibição correta ao carregar a página
+    });
+</script>
+
+<!-- Scripts principais -->
+<script type="module" src="app.js"></script>
+</body>
+</html>
