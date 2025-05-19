@@ -1,7 +1,8 @@
 # Reforça Fácil
 
-Sistema web para organização de aulas de reforço.  
-Este protótipo permite que professores cadastrem aulas e alunos se inscrevam de forma remota.
+**Sistema web para organização de aulas de reforço escolar.**  
+Este protótipo permite que professores cadastrem aulas e alunos se inscrevam remotamente, com foco na usabilidade e simplicidade.
+
 
 ## Tecnologias utilizadas
 
@@ -12,10 +13,13 @@ Este protótipo permite que professores cadastrem aulas e alunos se inscrevam de
 
 ## Como testar
 
-Acesse o link do protótipo hospedado (em breve).
-Ou baixe os arquivos e abra `index.html` localmente.
+- [ ] Acesse o link do protótipo hospedado: (https://reforcafacil.web.app)  
+  ou  
+- [ ] Baixe/clique com botão direito no arquivo `index.html` e abra no navegador para visualizar localmente.
 
 ## Objetivos
 
-- [ ] Facilitar a inscrição em monitorias.
+- [ ] Facilitar a inscrição em monitorias e aulas de reforço.
 - [ ] Testar e validar com usuários voluntários.
+- [ ] Coletar feedback e métricas de usabilidade.
+ 
